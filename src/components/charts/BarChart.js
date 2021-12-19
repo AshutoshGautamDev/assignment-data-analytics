@@ -68,7 +68,7 @@ const BarChart = ({ id, data, isHovered = false }) => {
         tooltip: {
           callbacks: {
             label: (context) => {
-              return `${context.raw}%`;
+              return `${context.raw}`;
             },
           },
         },
