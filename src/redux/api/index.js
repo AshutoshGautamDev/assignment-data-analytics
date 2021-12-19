@@ -1,7 +1,7 @@
 import axios from "axios";
 import { GET_DATA, GET_DATE_RANGE, SIGN_IN } from "./constants";
 
-const token = JSON.parse(window.localStorage.getItem("token"));
+const token = JSON.parse(window.localStorage.getItem("token")) || {};
 
 const header = { headers: { "X-Auth-Token": token.value } };
 
