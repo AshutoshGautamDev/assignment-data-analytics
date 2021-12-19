@@ -9,7 +9,7 @@ const DateRangeReducer = (state = initialState, action) => {
       return { ...state, data };
     case ON_DATE_RANGE_UPDATE:
       const updatedData = action.payload;
-      return {...state, updatedData}
+      return { ...state, updatedData };
     default:
       return state;
   }

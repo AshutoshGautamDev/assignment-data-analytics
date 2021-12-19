@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Input, Button, Checkbox, Modal, message } from "antd";
+import { Form, Input, Button, Checkbox, Modal } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { onSignIn, onSignOut } from "../redux/actions";
 import "../assets/style.css";
@@ -7,26 +7,23 @@ import "../assets/style.css";
 const SignIn = () => {
   const [visiblee, setVisible] = useState(false);
   const dispatch = useDispatch();
-  const { isLoggedIn, statusCode } = useSelector((state) => state.user);
+  const [loading, setLoading] = useState(false);
+  const { isLoggedIn } = useSelector((state) => state.user);
+
   const onFinish = (values) => {
+    setLoading(true);
     let payload = values;
     if (values.rememberMe === undefined)
       payload = { ...values, rememberMe: false };
     dispatch(onSignIn(payload));
+    setLoading(false);
     setVisible(false);
-    if (statusCode !== "200") {
-      message.error("Error occured while login");
-      return;
-    }
-  };
-
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
   };
 
   const onLogout = () => {
     dispatch(onSignOut());
   };
+
   return (
     <>
       {isLoggedIn ? (
@@ -55,7 +52,6 @@ const SignIn = () => {
               remember: true,
             }}
             onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
             autoComplete="off"
           >
             <Form.Item
@@ -101,7 +97,7 @@ const SignIn = () => {
                 span: 16,
               }}
             >
-              <Button type="primary" htmlType="submit">
+              <Button type="primary" htmlType="submit" loading={loading}>
                 Submit
               </Button>
             </Form.Item>

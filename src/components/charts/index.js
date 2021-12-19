@@ -14,14 +14,15 @@ const Charts = () => {
     <>
       {tableData && pieData && barData && (
         <Card>
+          <h1>Dashboard</h1>
           <Tabs defaultActiveKey="1" type="card" size={"large"}>
-            <TabPane tab="Tab 1" key="1">
+            <TabPane tab="Table" key="1">
               <PublisherTable data={tableData} />
             </TabPane>
-            <TabPane tab="Tab 2" key="2">
+            <TabPane tab="Bar Chart" key="2">
               <BarChart data={barData} />
             </TabPane>
-            <TabPane tab="Tab 3" key="3">
+            <TabPane tab="Pie Chart" key="3">
               <PieChart data={pieData} />
             </TabPane>
           </Tabs>

@@ -11,7 +11,7 @@ const appReducer = combineReducers({
   barChart: BarStateReducer,
   table: TableStateReducer,
   user: SignInStateReducer,
-  dateRange: DateRangeReducer
+  dateRange: DateRangeReducer,
 });
 
 export const RootReducer = (state, action) => {

@@ -9,7 +9,6 @@ const { RangePicker } = DatePicker;
 const DateRangePicker = ({ dateRange }) => {
   const dispatch = useDispatch();
   const [range, setRange] = useState(dateRange);
-  console.log(dateRange)
   const disabledDate = (current) => {
     return (
       (current && current < moment(parseInt(dateRange.startDate))) ||
@@ -18,7 +17,6 @@ const DateRangePicker = ({ dateRange }) => {
   };
 
   const onChange = (date) => {
-    console.log(date[0].valueOf(), date[1].valueOf());
     setRange({
       startDate: String(date[0].valueOf()),
       endDate: String(date[1].valueOf()),

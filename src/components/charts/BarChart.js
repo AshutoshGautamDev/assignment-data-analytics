@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { getRandomColor } from "../../utils/helper";
 import Chart from "./helper";
 
 const BarChart = ({ id, data, isHovered = false }) => {
@@ -21,8 +22,8 @@ const BarChart = ({ id, data, isHovered = false }) => {
       options: {
         scales: {
           y: {
-            beginAtZero: true
-          }
+            beginAtZero: true,
+          },
         },
         plugins: {
           tooltip: {
@@ -45,15 +46,6 @@ const BarChart = ({ id, data, isHovered = false }) => {
       result.destroy();
     };
   }, []);
-
-  const getRandomColor = () => {
-    var letters = "0123456789ABCDEF";
-    var color = "#";
-    for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  };
 
   useEffect(() => {
     if (option && data) {

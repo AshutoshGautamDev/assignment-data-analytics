@@ -15,7 +15,7 @@ const Container = () => {
         <br />
         <br />
         {!isLoggedIn && <Banner />}
-        {(isLoggedIn && dateRange) && <DateRangePicker dateRange={dateRange} />}
+        {isLoggedIn && dateRange && <DateRangePicker dateRange={dateRange} />}
         <br />
         <br />
         <Charts />

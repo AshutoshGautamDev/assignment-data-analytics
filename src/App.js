@@ -2,10 +2,10 @@ import Store from "./redux/store";
 import { Provider } from "react-redux";
 import { Layout } from "antd";
 import SignIn from "./components/SignIn";
+import Container from "./components/Container";
 
 import "./App.css";
 import "antd/dist/antd.css";
-import Container from "./components/Container";
 
 function App() {
   const { Header, Content } = Layout;

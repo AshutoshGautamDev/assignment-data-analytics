@@ -23,7 +23,7 @@ import {
   Legend,
   Title,
   Tooltip,
-} from 'chart.js';
+} from "chart.js";
 
 Chart.register(
   ArcElement,
@@ -48,7 +48,7 @@ Chart.register(
   Filler,
   Legend,
   Title,
-  Tooltip,
+  Tooltip
 );
 
 export default Chart;

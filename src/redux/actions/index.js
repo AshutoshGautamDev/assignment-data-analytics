@@ -11,7 +11,6 @@ export const getTableData = (dateRange) => {
 };
 
 export const getPieData = (dateRange) => {
-  console.log('Pie action runs')
   return { type: ON_PIE_CHART_DATA, payload: dateRange };
 };
 

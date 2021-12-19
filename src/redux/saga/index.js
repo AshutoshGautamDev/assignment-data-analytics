@@ -22,7 +22,6 @@ import {
 } from "../constants/payloads";
 
 function* getDataDateRange(action) {
-  console.log("Date Range payload called");
   const { payload } = action;
   const data = yield call(getDateRange, payload);
   yield put({ type: ON_DATE_RANGE_SUCCESS, payload: data });
@@ -53,9 +52,9 @@ function* signInUser(action) {
   const { payload } = action;
   const data = yield call(signIn, payload);
   yield put({ type: ON_SIGN_IN_SUCCESS, payload: data });
-  console.log("Runs -- 1");
-  yield getDataDateRange({ payload: dateRangePayload });
-  console.log("Runs -- 2");
+  if (data.statusCode === "200") {
+    yield getDataDateRange({ payload: dateRangePayload });
+  }
 }
 
 function* signOutUser() {
